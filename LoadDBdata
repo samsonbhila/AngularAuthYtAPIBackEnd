@@ -1,0 +1,17 @@
+
+
+USE AuthTYDB
+CREATE TABLE natural_gases (
+    Date date,
+    Price decimal(10, 2)
+);
+
+
+BULK INSERT natural_gases
+FROM 'C:\Users\pauli\OneDrive\Desktop\Wardew _ Wardew_files\daily_csv.csv'
+WITH (
+    FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR = '\n',
+    CODEPAGE = 'ACP' -- Specify the code page if needed
+);
