@@ -24,6 +24,10 @@ builder.Services.AddDbContext<AppDbContext>(option =>
 {
     option.UseSqlServer(builder.Configuration.GetConnectionString("SQLServer"));
 });
+builder.Services.AddDbContext<FullstackDbContext>(option =>
+{
+    option.UseSqlServer(builder.Configuration.GetConnectionString("SQLServer"));
+});
 
 builder.Services.AddAuthentication(x =>
 {
@@ -54,7 +58,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseCors("MyPolicy");
-
+app.UseCors(policy =>policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 app.UseAuthentication();
 
 app.UseAuthorization();

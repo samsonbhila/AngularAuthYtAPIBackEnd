@@ -15,5 +15,8 @@ namespace AngularAuthYtAPI.Context
         {
             builder.Entity<User>().ToTable("users");
         }
+    
     }
+
 }
+
